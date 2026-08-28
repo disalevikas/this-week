@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This Week — a minimal new tab that asks one question a week</title>
+<meta name="description" content="A calm, minimal Chrome new tab extension built on the four thousand weeks idea. Every Monday it asks what the week is for. No streaks, no tracking, no network requests.">
+<link rel="canonical" href="https://disalevikas.github.io/this-week/">
+<meta property="og:title" content="This Week — a minimal new tab that asks one question a week">
+<meta property="og:description" content="Most new tab extensions fill the page. This one empties it. One question every Monday, and an archive of what actually happened.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://disalevikas.github.io/this-week/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --bg:#faf9f7; --ink:#1c1b19; --muted:#7d7770; --faint:#ded9d3;
+    --line:#e7e2dc; --card:#f4f2ef;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#131312; --ink:#eceae7; --muted:#948d86; --faint:#2b2a28;
+            --line:#262523; --card:#1a1a18; }
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; background:var(--bg); color:var(--ink);
+    font:17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+  .serif { font-family:Georgia,"Iowan Old Style","Times New Roman",serif; font-weight:400; }
+
+  /* hero */
+  header { padding:104px 0 76px; text-align:center; }
+  .mark { display:flex; justify-content:center; gap:11px; margin-bottom:34px; }
+  .mark span { width:9px; height:9px; border-radius:50%; background:var(--faint); }
+  .mark span.on { background:var(--ink); transform:scale(1.5); }
+  h1 { font-size:46px; line-height:1.18; margin:0 0 20px; letter-spacing:-0.01em; }
+  .tagline { font-size:20px; color:var(--muted); margin:0 auto 40px; max-width:520px; }
+  .cta {
+    display:inline-block; background:var(--ink); color:var(--bg);
+    text-decoration:none; font-size:16px; padding:14px 30px; border-radius:6px;
+  }
+  .cta:hover { opacity:.88; }
+  .undercta { font-size:13.5px; color:var(--muted); margin-top:16px; }
+
+  /* demo card */
+  .demo {
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:66px 28px; text-align:center; margin:12px 0 0;
+  }
+  .demo .eyebrow { font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+                   color:var(--muted); margin-bottom:16px; }
+  .demo .line { font-size:27px; line-height:1.4; }
+  .demo .aside { font-size:14px; color:var(--muted); margin-top:18px; }
+
+  section { padding:56px 0; border-top:1px solid var(--line); }
+  h2 { font-size:13px; letter-spacing:.09em; text-transform:uppercase;
+       color:var(--muted); font-weight:500; margin:0 0 22px; }
+  h3 { font-size:24px; margin:0 0 12px; }
+  p { margin:0 0 18px; }
+  .lede { font-size:21px; line-height:1.55; }
+  ul { padding-left:22px; margin:0 0 18px; }
+  li { margin-bottom:10px; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:34px; }
+  @media (max-width:640px) {
+    header { padding:72px 0 56px; }
+    h1 { font-size:34px; }
+    .two { grid-template-columns:1fr; }
+  }
+  .faq-q { font-weight:600; margin:0 0 6px; }
+  .faq + .faq { margin-top:26px; }
+  footer { padding:44px 0 72px; border-top:1px solid var(--line);
+           font-size:14px; color:var(--muted); }
+  footer a { color:inherit; }
+  .note { font-size:14.5px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="mark">
+      <span></span><span></span><span></span>
+      <span></span><span class="on"></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+    <h1 class="serif">One question, every Monday.</h1>
+    <p class="tagline">Most new tab extensions fill the page. This one empties it.</p>
+    <a class="cta" href="#install">Add to Chrome — free</a>
+    <div class="undercta">One permission. No account. No network requests, ever.</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="demo">
+    <div class="eyebrow">This week</div>
+    <div class="line serif">Finish the audit and actually send it</div>
+    <div class="aside">Setting aside: Starting anything new</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <h2>How it works</h2>
+    <p class="lede serif">Every Monday, This Week asks a single question: what is
+    this week for?</p>
+    <p>You answer in one line. For the rest of the week, that line is all your new
+    tab shows. When the week turns, it asks whether it happened — and records your
+    answer without scoring it.</p>
+    <p>That's the whole thing.</p>
+  </section>
+
+  <section>
+    <h2>Why a week</h2>
+    <p>A day is too short to mean anything and a year is too long to feel. A week
+    is the unit a life is actually lived in — and if you live to eighty, you get
+    about four thousand of them.</p>
+    <p class="note">The idea comes from Oliver Burkeman's book <em>Four Thousand
+    Weeks</em>. This extension is an independent project and is not affiliated
+    with the author or publisher.</p>
+  </section>
+
+  <section>
+    <div class="two">
+      <div>
+        <h3 class="serif">What it does</h3>
+        <ul>
+          <li>Asks one question a week, and shows your answer back all week</li>
+          <li>Lets you name what the week is <em>not</em> for</li>
+          <li>Closes the loop: it happened, some of it, or it didn't</li>
+          <li>Keeps an archive of what you said mattered</li>
+          <li>Optional life-in-weeks grid</li>
+          <li>Exports everything as plain text</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="serif">What it refuses to do</h3>
+        <ul>
+          <li>No streaks, no completion rate, no percentages</li>
+          <li>No to-do list — one line a week, not a backlog</li>
+          <li>No quotes, clock, weather, or widgets</li>
+          <li>No nagging; leaving a week open is a real answer</li>
+          <li>Never steals focus from the address bar</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Discreet mode</h2>
+    <h3 class="serif">Built for open-plan desks.</h3>
+    <p>The entries most worth writing are the ones you least want read over your
+    shoulder. Turn on discreet mode and the page stays blank — not blurred, blank,
+    which looks no different from a week you left open. Hold <kbd>Shift</kbd>, or
+    hover the small label, to read it.</p>
+    <p>The first new tab each morning shows the week plainly. Every tab after that
+    is blank. The archive is covered too.</p>
+  </section>
+
+  <section>
+    <h2>Privacy</h2>
+    <p class="lede serif">Nothing you write leaves your browser.</p>
+    <p>One permission: storage. No network requests of any kind — not analytics,
+    not fonts, not error reporting. There is no account to create and no server to
+    trust. Your entries sync between your own Chrome profiles through Chrome's
+    built-in sync, and "erase everything" in settings deletes all of it.</p>
+    <p><a href="privacy/">Read the full privacy policy</a></p>
+  </section>
+
+  <section id="install">
+    <h2>Install</h2>
+    <p><a class="cta" href="#">Get it on the Chrome Web Store</a></p>
+    <p class="note" style="margin-top:18px">Replaces your new tab page. Remove it
+    any time from <code>chrome://extensions</code> and Chrome restores the
+    default.</p>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+
+    <div class="faq">
+      <p class="faq-q">Does it track me or send anything anywhere?</p>
+      <p>No. The extension makes no network requests at all. It has a single
+      permission, <code>storage</code>, used only to save what you type so it can
+      be shown back to you.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">What happens if I skip a week?</p>
+      <p>Nothing. "Leave this week open" is a first-class answer and it sticks —
+      the page won't ask again that week. There are no streaks to break.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">Can I get my data out?</p>
+      <p>Yes. The archive exports as a plain text file at any time, and everything
+      can be erased from settings in one click.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">Does it work offline?</p>
+      <p>Entirely. It has never needed a connection.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">Why is the page so empty?</p>
+      <p>Because you open a new tab about a hundred times a day, and anything
+      placed there becomes wallpaper within a week. The emptiness is what keeps
+      the one line worth reading.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    This Week is free and open source ·
+    <a href="https://github.com/disalevikas/this-week">Source on GitHub</a> ·
+    <a href="privacy/">Privacy</a> ·
+    <a href="https://github.com/disalevikas/this-week/issues">Support</a>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "This Week — Minimal New Tab",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "description": "A calm, minimal Chrome new tab extension built on the four thousand weeks idea. Every Monday it asks what the week is for, shows your answer back all week, and keeps an archive of what actually happened. No streaks, no tracking, no network requests.",
+  "url": "https://disalevikas.github.io/this-week/",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does it track me or send anything anywhere?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The extension makes no network requests at all. It has a single permission, storage, used only to save what you type so it can be shown back to you." } },
+    { "@type": "Question", "name": "What happens if I skip a week?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nothing. Leave this week open is a first-class answer and it sticks. There are no streaks to break." } },
+    { "@type": "Question", "name": "Can I get my data out?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The archive exports as a plain text file at any time, and everything can be erased from settings in one click." } },
+    { "@type": "Question", "name": "Does it work offline?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Entirely. It has never needed a connection." } }
+  ]
+}
+</script>
+
+</body>
+</html>
